@@ -33,7 +33,7 @@ gss = google_spread_sheet()
 
 folder = "/home/pi/UserData"
 filename = os.path.basename(__file__).strip('.py')
-today = datetime.now().strftime('%y%m%d_%H%M')
+today = datetime.now().strftime('%m%d_%H%M')
 csv_conversation = open(f'{folder}/{today}_{filename}.csv', 'a', newline='', encoding = 'utf-8')
 cwc = csv.writer(csv_conversation)
 crc = csv.reader(csv_conversation, delimiter=',', doublequote=True, lineterminator='\r\n', quotechar='"')
@@ -208,7 +208,7 @@ class Say():
         cwc.writerow(['%Misrecognitions', ])
 
         # 5. 활동 완료 기록
-        gss.write_sheet(name=self.user_name, today=today, activities=filename)
+        gss.write_sheet(name=self.user_name, today=f'(1)_{today}', activities=filename)
         
 
 if __name__ == "__main__":
