@@ -113,7 +113,7 @@ class Roleplay():
         self.reject.append(answer[1])
         
         if answer[0][0] == "positive":
-            answer = cm.responses_proc(re_bhv="do_compliment_S", re_q=f"의 어떤 점이 {animal} 같니?",
+            answer = cm.responses_proc(re_bhv="do_compliment_S", re_q=f"{wm.word(self.user_name, 0)} 주변에는 {animal}처럼 용감하고 씩씩한 친구가 있니?",
                                        pos_bhv="do_joy_B", pos="파이보도 용감하고 씩씩해지고 싶다!",
                                        neu_bhv="do_compliment_S", neu="몰라도 괜찮아.",
                                        act_bhv="do_joy_B", act="파이보도 용감하고 씩씩해지고 싶다!")
