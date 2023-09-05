@@ -65,60 +65,62 @@ class RunSchedule():
         
         ## 선호도 계산해서 활동 스케줄 결정(4일차~)
         
-        if 9 <= self.completion <= 10 or self.completion >= 12:
-            for i in range(0, len(data2)):
-                for j in range(0, 4):
-                    data2[i][j] = float(data2[i][j])    # 점수 값이 string 형태로 들어있어서 flaot로 변환
-            print(data2)
+        # if 9 <= self.completion <= 10 or self.completion >= 12:
+        #     for i in range(0, len(data2)):
+        #         for j in range(0, 4):
+        #             data2[i][j] = float(data2[i][j])    # 점수 값이 string 형태로 들어있어서 flaot로 변환
+        #     print(data2)
 
-            for i in range(0, len(data2)-1):            # 각 항목끼리 모두 합연산
-                data3 = [sum(i) for i in zip(*data2)]   # data1 목록 만큼
-            print("선호도 총합:", data3)   
+        #     for i in range(0, len(data2)-1):            # 각 항목끼리 모두 합연산
+        #         data3 = [sum(i) for i in zip(*data2)]   # data1 목록 만큼
+        #     print("선호도 총합:", data3)   
             
-            result = us.update(new_preference=data3)[0]    
+        #     result = us.update(new_preference=data3)[0]    
                     
             
-            if result == '사회성':            
-                # 완료한 활동 개수가 짝수면 놀이, 홀수면 대화
-                if self.completion % 2 == 0: 
-                    rand = random.choice([2, 3])
-                    self.act = f'Pibo_Play/src/Soc/soc_{rand}.py'
+        #     if result == '사회성':            
+        #         # 완료한 활동 개수가 짝수면 놀이, 홀수면 대화
+        #         if self.completion % 2 == 0: 
+        #             rand = random.choice([2, 3])
+        #             self.act = f'Pibo_Play/src/Soc/soc_{rand}.py'
                 
-                if self.completion % 2 != 0:
-                    rand = random.choice(['06_street', '14_giveaway'])
-                    self.act = f'Pibo_Conversation/src/Etiquette/{rand}.py'
-                    # self.act = f'Pibo_Conversation/src/Etiquette/00_qrcode.py'
+        #         if self.completion % 2 != 0:
+        #             rand = random.choice(['06_street', '14_giveaway'])
+        #             self.act = f'Pibo_Conversation/src/Etiquette/{rand}.py'
+        #             # self.act = f'Pibo_Conversation/src/Etiquette/00_qrcode.py'
                 
-            if result == '의사소통':
-                # 완료한 활동 개수가 짝수면 놀이, 홀수면 대화
-                if self.completion % 2 == 0: 
-                    rand = random.choice([1, 2])
-                    self.act = f'Pibo_Play/src/Com/com_{rand}.py'
+        #     if result == '의사소통':
+        #         # 완료한 활동 개수가 짝수면 놀이, 홀수면 대화
+        #         if self.completion % 2 == 0: 
+        #             rand = random.choice([1, 2])
+        #             self.act = f'Pibo_Play/src/Com/com_{rand}.py'
                 
-                if self.completion % 2 != 0:
-                    rand = random.choice(['02_salt', '18_rabbit'])
-                    self.act = f'Pibo_Conversation/src/Fairytale/{rand}.py'
+        #         if self.completion % 2 != 0:
+        #             rand = random.choice(['02_salt', '18_rabbit'])
+        #             self.act = f'Pibo_Conversation/src/Fairytale/{rand}.py'
                 
-            if result == '인지':
-                # 완료한 활동 개수가 짝수면 놀이, 홀수면 대화
-                if self.completion % 2 == 0: 
-                    rand = random.choice([3, 10])
-                    self.act = f'Pibo_Play/src/Cog/cog_{rand}.py'
+        #     if result == '인지':
+        #         # 완료한 활동 개수가 짝수면 놀이, 홀수면 대화
+        #         if self.completion % 2 == 0: 
+        #             rand = random.choice([3, 10])
+        #             self.act = f'Pibo_Play/src/Cog/cog_{rand}.py'
                 
-                if self.completion % 2 != 0:
-                    rand = random.choice(['02_wash', '03_night', '17_thank', '18_cheerup'])
-                    self.act = f'Pibo_Conversation/src/Solution/{rand}.py'
+        #         if self.completion % 2 != 0:
+        #             rand = random.choice(['02_wash', '03_night', '17_thank', '18_cheerup'])
+        #             self.act = f'Pibo_Conversation/src/Solution/{rand}.py'
                 
-            if result == '근육':
-                # 완료한 활동 개수가 짝수면 놀이, 홀수면 대화
-                if self.completion % 2 == 0:
-                    rand = random.choice([1, 8, 12])
-                    self.act = f'Pibo_Play/src/Mus/mus_{rand}.py'
+        #     if result == '근육':
+        #         # 완료한 활동 개수가 짝수면 놀이, 홀수면 대화
+        #         if self.completion % 2 == 0:
+        #             rand = random.choice([1, 8, 12])
+        #             self.act = f'Pibo_Play/src/Mus/mus_{rand}.py'
                     
-                if self.completion % 2 != 0:
-                    rand = random.choice(['03_tiny', '04_flying'])
-                    self.act = f'Pibo_Conversation/src/Roleplay/{rand}.py'
-        
+        #         if self.completion % 2 != 0:
+        #             rand = random.choice(['03_tiny', '04_flying'])
+        #             self.act = f'Pibo_Conversation/src/Roleplay/{rand}.py'
+        if self.completion == 10:
+            self.act = f'Pibo_Play/src/Soc/soc_3.py' 
+            
         # 마지막 활동은 헤어짐 시나리오 실행 
         if self.completion == 11:
             self.act = f'Pibo_Conversation/src/goodbye.py'           
