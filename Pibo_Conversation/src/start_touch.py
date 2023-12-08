@@ -54,7 +54,8 @@ while True:
             for i in range(0, 2):
                 device.eye_off(); time.sleep(0.5); 
                 device.eye_on(255,255,255); time.sleep(0.5) 
-            
+                
+            cm.tts(bhv="do_question_S", string=f"활동 이름을 말씀해 주세요.")
             answer = cm.responses_proc(re_bhv="do_waiting_A", re_q="활동 이름을 말씀해 주세요.")
             print(answer)
             
