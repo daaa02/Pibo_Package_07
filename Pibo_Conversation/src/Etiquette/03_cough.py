@@ -56,20 +56,20 @@ class Etiquette():
     def Cough(self):
         cm.tts(bhv="do_suggestion_L", string=f"2번 카드를 파이보에게 보여줘!")
         
-        while True:         
-            time.sleep(2)
-            img = pibo_camera.read()
-            qr = pibo_detect.detect_qr(img)
-            self.card_msg = qr['data']
+        # while True:         
+        #     time.sleep(2)
+        #     img = pibo_camera.read()
+        #     qr = pibo_detect.detect_qr(img)
+        #     self.card_msg = qr['data']
             
-            if self.card_msg == "입을 가리고 기침을 해요":
-                break
-            else:
-                cm.tts(bhv="do_suggestion_L", string=f"2번 카드를 다시 보여줄래?")
-                continue
+        #     if self.card_msg == "입을 가리고 기침을 해요":
+        #         break
+        #     else:
+        #         cm.tts(bhv="do_suggestion_L", string=f"2번 카드를 다시 보여줄래?")
+        #         continue
         
         # 2.1 카드 대화
-        time.sleep(2)
+        time.sleep(7)
             
         pibo = cm.tts(bhv="do_question_L", string="이 카드의 어린이는 무엇을 잘못했을까?")
         answer = cm.responses_proc(re_bhv="do_question_L", re_q="이 카드의 어린이는 무엇을 잘못했을까?",
