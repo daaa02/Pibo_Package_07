@@ -149,7 +149,7 @@ class Com():
         answer = cm.responses_proc(re_bhv="do_question_S", re_q=f"파이보랑 노는 거 재미있었어?")
         
         # 종료 인사
-        pibo = cm.tts(bhv="do_joy_A", string=f"그럼 우리 나중에 또 놀자!")
+        # pibo = cm.tts(bhv="do_joy_A", string=f"그럼 우리 나중에 또 놀자!")
 
         if len(answer[0][1]) != 0:
             for i in range(len(self.Negative)):
